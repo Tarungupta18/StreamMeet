@@ -22,8 +22,12 @@ const uri = process.env.MONGO_URL;
 app.set("port", (process.env.PORT || 8000));
 
 app.use(cors());
+import userRoutes from "./routes/users.routes.js";
+
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
+
+app.use("/api/v1/users", userRoutes);
 
 
 const start = async () => {
