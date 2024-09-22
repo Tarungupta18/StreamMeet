@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
 
 
             if (request.status === httpStatus.CREATED) {
-                console.log(request.data.message);
                 return request.data.message;
             }
         } catch (err) {
@@ -87,7 +86,7 @@ export const AuthProvider = ({ children }) => {
 
 
     const data = {
-        userData, setUserData, handleRegister, handleLogin
+        userData, setUserData, addToUserHistory, getHistoryOfUser, handleRegister, handleLogin
     }
 
     return (
