@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext({});
 
 const client = axios.create({
-    baseURL: `localhost:8000/api/v1/users`
+    baseURL: "http://localhost:8000/api/v1/users"
 })
 
 
@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
 
 
             if (request.status === httpStatus.CREATED) {
+                console.log(request.data.message);
                 return request.data.message;
             }
         } catch (err) {
@@ -86,7 +87,7 @@ export const AuthProvider = ({ children }) => {
 
 
     const data = {
-        userData, setUserData, addToUserHistory, getHistoryOfUser, handleRegister, handleLogin
+        userData, setUserData, handleRegister, handleLogin
     }
 
     return (
